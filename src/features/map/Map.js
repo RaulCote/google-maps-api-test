@@ -45,7 +45,6 @@ function Map({ apiKey, children, style }) {
 
         loadMap(map);
       } catch (err) {
-        console.error('Error loading maps: ', err);
         setErrorsLoading(true);
       }
     }
