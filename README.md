@@ -1,68 +1,30 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Google Maps Api Test
 
-## Available Scripts
+Exercise to practice with the Google Maps API. It follows the examples
+given in their documentation. It uses the Places API with the Autocomplete
+component. To start of Create React App was used with the Redux Toolkit.
 
-In the project directory, you can run:
+In order to show off how to manage the API properly and how to break the
+code into components I have chosen to go with the basic google maps package to
+just connect the script via javascript instead of the CDN script tag.
+There are some good packages that simplify using Google Maps a lot but it didn't
+make sense for learn purposes.
 
-### `yarn start`
+To separate Google Maps API into components I decided to create a Map Context as
+the map object and place object are very complex for the Redux Store, but
+over the Context API they can be managed safely. Once we have the Google Maps
+objects available on our "Global State" it's easier to break the code down into
+components as they will be dependant on those global shared objects. I created the
+context, a Map component, an Autocomplete component and the Markers component.
+Redux store has only been kept to "fake" statistics. Markers are saved in the store
+for the future posibility of displying all markers by a user in another Map
+component / application.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How to Run
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+yarn install
+yarn start
 
-### `yarn test`
+## Link
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Link App](https://raulcote.github.io/google-maps-api-test/)
