@@ -11,7 +11,7 @@ export const mapSlice = createSlice({
       immer will produce internally a new array */
 
     addMarkerToStatistics: (state, action) => {
-      state.markers.push(action.payload.marker);
+      state.markers.push(action.payload);
     },
   },
 });
