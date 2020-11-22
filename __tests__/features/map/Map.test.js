@@ -6,21 +6,14 @@ import * as GoogleMaps from '@googlemaps/js-api-loader';
 
 const Loader = jest.spyOn(GoogleMaps, 'Loader');
 
-const mapMock = jest.fn();
-
-window.google = {
-  maps: {
-    Map: mapMock.mockImplementation(() => ({ mapObject: 'GoogleMaps' })),
-  },
-};
-
 describe('Map Component', () => {
-  Loader.mockImplementationOnce(() => ({
-    load: () => {},
-  }));
+  window.google = {
+    maps: {
+      Map: jest.fn().mockImplementation(() => ({ mapObject: 'GoogleMaps' })),
+    },
+  };
 
-  test(`it should call the Google Maps API and upload the map object to
-  the context, it should show children components once the map is loaded`, async () => {
+  function renderComponent() {
     render(
       <MapProvider>
         <Map apiKey="superSecretKey" style={{ width: '100%', height: '100vh' }}>
@@ -28,6 +21,19 @@ describe('Map Component', () => {
         </Map>
       </MapProvider>
     );
+  }
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test(`it should call the Google Maps API and upload the map object to
+the context, it should show children components once the map is loaded`, async () => {
+    Loader.mockImplementationOnce(() => ({
+      load: () => {},
+    }));
+
+    renderComponent();
 
     expect(Loader).toHaveBeenCalledTimes(1);
     expect(await screen.findByText('Hello')).toBeInTheDocument();
@@ -41,13 +47,7 @@ describe('Map Component', () => {
       },
     }));
 
-    render(
-      <MapProvider>
-        <Map apiKey="superSecretKey" style={{ width: '100%', height: '100vh' }}>
-          <div>Hello</div>
-        </Map>
-      </MapProvider>
-    );
+    renderComponent();
 
     expect(
       await screen.findByText('Something went wrong...')
