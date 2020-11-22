@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.ea15d799.chunk.css",
-    "main.js": "/static/js/main.efa64939.chunk.js",
-    "main.js.map": "/static/js/main.efa64939.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.4d43fc88.js",
-    "runtime-main.js.map": "/static/js/runtime-main.4d43fc88.js.map",
-    "static/js/2.85f33b8d.chunk.js": "/static/js/2.85f33b8d.chunk.js",
-    "static/js/2.85f33b8d.chunk.js.map": "/static/js/2.85f33b8d.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.ea15d799.chunk.css.map": "/static/css/main.ea15d799.chunk.css.map",
-    "static/js/2.85f33b8d.chunk.js.LICENSE.txt": "/static/js/2.85f33b8d.chunk.js.LICENSE.txt"
+    "main.css": "/google-maps-api-test/static/css/main.ea15d799.chunk.css",
+    "main.js": "/google-maps-api-test/static/js/main.ae28de8f.chunk.js",
+    "main.js.map": "/google-maps-api-test/static/js/main.ae28de8f.chunk.js.map",
+    "runtime-main.js": "/google-maps-api-test/static/js/runtime-main.a35d842b.js",
+    "runtime-main.js.map": "/google-maps-api-test/static/js/runtime-main.a35d842b.js.map",
+    "static/js/2.85f33b8d.chunk.js": "/google-maps-api-test/static/js/2.85f33b8d.chunk.js",
+    "static/js/2.85f33b8d.chunk.js.map": "/google-maps-api-test/static/js/2.85f33b8d.chunk.js.map",
+    "index.html": "/google-maps-api-test/index.html",
+    "static/css/main.ea15d799.chunk.css.map": "/google-maps-api-test/static/css/main.ea15d799.chunk.css.map",
+    "static/js/2.85f33b8d.chunk.js.LICENSE.txt": "/google-maps-api-test/static/js/2.85f33b8d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4d43fc88.js",
+    "static/js/runtime-main.a35d842b.js",
     "static/js/2.85f33b8d.chunk.js",
     "static/css/main.ea15d799.chunk.css",
-    "static/js/main.efa64939.chunk.js"
+    "static/js/main.ae28de8f.chunk.js"
   ]
 }
