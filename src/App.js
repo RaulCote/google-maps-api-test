@@ -1,14 +1,19 @@
-import React from 'react';
 import './App.css';
-import SearchMap from './features/map/SearchMap';
-import MapProvider from './features/map/Map';
+import React from 'react';
+import MapProvider from './features/map/MapContext';
+import Autocomplete from './features/map/Autocomplete';
+import Map from './features/map/Map';
+import Markers from './features/map/Markers';
 import { API_KEY } from './constants';
 
 function App() {
   return (
     <div className="App">
-      <MapProvider apiKey={API_KEY} style={{ width: '100%', height: '100vh' }}>
-        <SearchMap />
+      <MapProvider>
+        <Map apiKey={API_KEY} style={{ width: '100%', height: '100vh' }}>
+          <Autocomplete />
+          <Markers />
+        </Map>
       </MapProvider>
     </div>
   );

@@ -1,8 +1,8 @@
+import './Map.css';
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Loader } from '@googlemaps/js-api-loader';
-import MapContext from './MapContext';
-import './Map.css';
+import { useMap } from './MapContext';
 
 const countries = {
   es: {
@@ -23,16 +23,16 @@ const mapOptions = {
   zoomControl: false,
 };
 
-function MapProvider({ apiKey, children, style }) {
-  const [map, setMap] = useState(null);
+function Map({ apiKey, children, style }) {
   const [errorLoadingMaps, setErrorsLoading] = useState(false);
   const mapEl = useRef();
+  const { map, loadMap } = useMap();
 
   useEffect(() => {
-    async function loadMaps() {
+    async function initMap() {
       try {
         const loader = new Loader({
-          apiKey: apiKey,
+          apiKey,
           version: 'weekly',
           libraries: ['places'],
         });
@@ -43,34 +43,33 @@ function MapProvider({ apiKey, children, style }) {
 
         const map = new google.maps.Map(mapEl.current, mapOptions);
 
-        setMap(map);
+        loadMap(map);
       } catch (err) {
         console.error('Error loading maps: ', err);
         setErrorsLoading(true);
       }
     }
 
-    loadMaps();
-  }, [apiKey]);
+    initMap();
+  }, [apiKey, loadMap]);
 
   if (errorLoadingMaps) {
-    // it should be properly styled, a nice beautiful component etc..
+    // this error should be properly styled, a nice beautiful component
+    // to show when the maps api fails
     return <h1>Something went wrong...</h1>;
   }
 
   return (
     <div id="map" ref={mapEl} style={style}>
-      <MapContext.Provider value={map}>
-        {map ? children : <></>}
-      </MapContext.Provider>
+      {map ? children : <></>}
     </div>
   );
 }
 
-MapProvider.propTypes = {
+Map.propTypes = {
   apiKey: PropTypes.string.isRequired,
   children: PropTypes.node,
   style: PropTypes.object.isRequired,
 };
 
-export default MapProvider;
+export default Map;

@@ -1,18 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useMap } from './MapContext';
 import { addMarkerToStatistics } from './mapSlice';
 
-const countryRestrict = {
-  country: 'es',
-};
-
-export default function SearchMap() {
-  const dispatch = useDispatch();
-  const map = useMap();
-  const google = window.google;
+export default function Markers() {
   const [, setMarkers] = useState([]);
-  const inputEl = useRef(null);
+  const dispatch = useDispatch();
+  const { map, place } = useMap();
+  const google = window.google;
 
   const updateMarkers = useCallback(
     place => {
@@ -65,30 +60,8 @@ export default function SearchMap() {
   );
 
   useEffect(() => {
-    /* Using Autocomplete instead of SearchBox as it makes
-     * less calls to Google Maps */
-    const searchBox = new google.maps.places.Autocomplete(inputEl.current, {
-      componentRestrictions: countryRestrict,
-    });
+    if (place) updateMarkers(place);
+  }, [place, updateMarkers]);
 
-    // Bias the SearchBox results towards current map's viewport.
-    const boundsListener = map.addListener('bounds_changed', () => {
-      searchBox.setBounds(map.getBounds());
-    });
-
-    const placesListener = searchBox.addListener('place_changed', () => {
-      const newPlace = searchBox.getPlace();
-
-      updateMarkers(newPlace);
-    });
-
-    return () => {
-      google.maps.event.removeListener(boundsListener);
-      google.maps.event.removeListener(placesListener);
-    };
-  }, [google, map, updateMarkers]);
-
-  return (
-    <input id="searchBox" type="text" placeholder="Search..." ref={inputEl} />
-  );
+  return <></>;
 }
