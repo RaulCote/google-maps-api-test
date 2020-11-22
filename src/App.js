@@ -1,4 +1,3 @@
-import './App.css';
 import React from 'react';
 import MapProvider from './features/map/MapContext';
 import Autocomplete from './features/map/Autocomplete';
@@ -8,7 +7,7 @@ import { API_KEY } from './constants';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <MapProvider>
         <Map apiKey={API_KEY} style={{ width: '100%', height: '100vh' }}>
           <Autocomplete />
