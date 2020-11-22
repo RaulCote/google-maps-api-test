@@ -11,6 +11,26 @@
   outline: none;
   font-size: 1rem;
   padding-left: 1rem;
+  padding-right: 1rem;
+  text-overflow: ellipsis;
+}
+
+.pac-icon {
+  display: none;
+}
+
+.pac-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 5px;
+}
+
+.pac-item {
+  text-overflow: ellipsis;
+}
+
+.pac-item:last-child {
+  padding-bottom: 1rem;
 }
 
 @media (max-width: 600px) {
