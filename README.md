@@ -22,8 +22,15 @@ component / application.
 
 ## How to Run
 
-yarn install
-yarn start
+- yarn install
+- add your google maps api key (with places API opened).
+
+```javascript
+// create file src/constants.js
+export const API_KEY = 'YOUR_API_KEY';
+```
+
+- yarn start
 
 ## Link
 
