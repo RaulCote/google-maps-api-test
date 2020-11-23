@@ -27,6 +27,8 @@
 
 .pac-item {
   text-overflow: ellipsis;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .pac-item:last-child {
