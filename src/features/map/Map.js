@@ -21,7 +21,6 @@ const mapOptions = {
   mapTypeControl: false,
   fullscreenControl: false,
   zoomControl: false,
-  gestureHandling: 'cooperative',
 };
 
 function Map({ apiKey, children, style }) {
