@@ -7,14 +7,12 @@ import { API_KEY } from './constants';
 
 function App() {
   return (
-    <div>
-      <MapProvider>
-        <Map apiKey={API_KEY} style={{ width: '100%', height: '100vh' }}>
-          <Autocomplete />
-          <Markers />
-        </Map>
-      </MapProvider>
-    </div>
+    <MapProvider>
+      <Map apiKey={API_KEY} style={{ width: '100%', height: '100vh' }}>
+        <Autocomplete />
+        <Markers />
+      </Map>
+    </MapProvider>
   );
 }
 
